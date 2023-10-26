@@ -1,4 +1,4 @@
-<script src="https://unpkg.com/launchdarkly-js-client-sdk@2.18.1/dist/ldclient.min.js"></script>
+<script src="https://unpkg.com/launchdarkly-js-client-sdk@3"></script>
 
 <h1>Great LinkedIn Learning Courses</h1>
 
@@ -22,20 +22,10 @@ If you’re a developer working in any sort of team environment, tracking change
     var ldclient = LDClient.initialize(clientId, user);
 
     ldclient.on('ready', function() {
-        ldclient.variation(flagName, false, function(err, showFeature) {
-            if (showFeature) {
                 document.getElementById("preview").style.display = "block";
-            }
-        });
     });
 
-    ldclient.on("change:" + flagName, function() {
-        ldclient.variation(flagName, false, function(err, showFeature) {
-            if (showFeature) {
-                document.getElementById("preview").style.display = "block";
-            } else {
-                document.getElementById("preview").style.display = "none";
-            }
-        });
+    ldclient.on("change:" + flagName, function(newVal, prevVal) {
+        document.getElementById("preview").style.display = newVal ? "block" : "none";
     });
 </script>
