@@ -17,6 +17,8 @@ If you’re a developer working in any sort of team environment, tracking change
 
 <h3>Very important bugfix (Not really..)</h3>
 
+<h3>Some more bla bla</h3>
+
 
 <script>
     var clientId = "653a933ebcc91c12a064f68e";
